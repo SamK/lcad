@@ -1,0 +1,42 @@
+name: Python Tests
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Set up Python 3.8
+      uses: actions/setup-python@v1
+      with:
+        python-version: 3.8
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip --version
+        # test suite
+        pip install pylint black pytest coverage pytest-cov
+        # package dependencies
+        pip install PyYAML Pandas Tabulate
+
+    - name: Execute smoke tests
+      run: |
+        PYTHONPATH=. pylint bin lcad --errors-only
+        PYTHONPATH=. python ./bin/lcad_bin.py --version
+        PYTHONPATH=. python ./bin/lcad_bin.py --help
+
+    - name: Analyse the code with Black
+      run: |
+        black --version
+        black --check --diff bin lcad
+
+    - name: Analyse the code with pylint
+      run: |
+        pylint --version
+        PYTHONPATH=. pylint --fail-under=9 bin lcad
+
+    - name: Execute unit tests and display code coverage
+      run: |
+        PYTHONPATH=. pytest --cov=lcad tests
