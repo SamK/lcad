@@ -5,16 +5,16 @@ import json
 
 
 def test_load():
-    reference = eval(file_io('basic.python').read())
-    loaded = lcad.parsers.python.load(file_io('basic.python'))
+    reference = eval(file_io('dict.python').read())
+    loaded = lcad.parsers.python.load(file_io('dict.python'))
     assert reference == loaded
 
 
 def test_dump():
-    vref = eval(file_io('basic.python').read()) # reference as python type
+    vref = eval(file_io('dict.python').read()) # reference as python type
     reference = repr(vref) # reference as string type
 
-    loaded = lcad.parsers.json.load(file_io('basic.json')) # data as python type
+    loaded = lcad.parsers.json.load(file_io('dict.json')) # data as python type
     dumped = lcad.parsers.python.dump(loaded) # data as string type
 
     assert reference == dumped

@@ -18,14 +18,14 @@ def test_cli_simple_test(capsys):
     """
     Execute a simple execution
     """
-    iargs = '-vv convert --input-file tests/parsers/files/basic.yaml --from yaml --to json'.split()
+    iargs = '-vv convert --input-file tests/parsers/files/dict.yaml --from yaml --to json'.split()
     lcad.cli.main(iargs)
     captured = capsys.readouterr()
     # validate
     json.loads(captured.out)
 
 def test_cli_no_rogue_print(capsys):
-    iargs = '-vv convert --input-file tests/parsers/files/basic.yaml --from yaml --to zero'.split()
+    iargs = '-vv convert --input-file tests/parsers/files/dict.yaml --from yaml --to zero'.split()
     lcad.cli.main(iargs)
     captured = capsys.readouterr()
     assert captured.out.strip() == ""
