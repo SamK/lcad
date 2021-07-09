@@ -25,6 +25,11 @@ def list_formats(_):
     for name, properties in lcad.parserlib.discover_parsers().items():
         format_lines = []
 
+        # skip if required
+        if properties["hide"]:
+            log.debug("Hiding format {}".format(name))
+            continue
+
         # determine capabilities
         capabilities = []
         for operation in ["load", "dump"]:

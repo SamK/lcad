@@ -1,6 +1,7 @@
 """
 Parser that returns what has been given without modification
 """
+HIDE = True
 
 
 def load(text):  # pylint: disable=missing-function-docstring

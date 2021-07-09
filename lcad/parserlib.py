@@ -32,10 +32,17 @@ def discover_parsers():
         log.debug("Found submodule: {}".format(submodule.name))
         parser_module_name = "lcad.parsers.{}".format(submodule.name)
         module = importlib.import_module(parser_module_name)
+
+        try:
+            hide = module.HIDE
+        except AttributeError:
+            hide = False
+
         parser = {
             "load": has_function(module, "load"),
             "dump": has_function(module, "dump"),
             "doc": module.__doc__,
+            "hide": hide,
         }
         parsers_found[submodule.name] = parser
     return parsers_found
