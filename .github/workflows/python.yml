@@ -17,7 +17,7 @@ jobs:
         python -m pip install --upgrade pip
         pip --version
         # test suite
-        pip install pylint black pytest coverage pytest-cov
+        pip install pylint black pytest coverage
         # package dependencies
         pip install PyYAML Pandas Tabulate
 
@@ -37,6 +37,10 @@ jobs:
         pylint --version
         PYTHONPATH=. pylint --fail-under=9 bin lcad
 
-    - name: Execute unit tests and display code coverage
+    - name: Unit tests
       run: |
-        PYTHONPATH=. pytest --cov=lcad tests
+        coverage run --source lcad -m pytest
+
+    - name: Coverage report
+      run: |
+        coverage report -m
