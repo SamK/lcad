@@ -28,7 +28,7 @@ def list_formats(_):
         # determine capabilities
         capabilities = []
         for operation in ["load", "dump"]:
-            if operation in properties:
+            if operation in properties and properties[operation]:
                 capabilities.append(operation)
         format_lines.append("{} ({}):".format(name, ", ".join(capabilities)))
 
