@@ -4,15 +4,15 @@ import lcad.parsers.json
 from . import file_io
 
 
-def test_load():
-    reference = json.load(file_io('dict.json'))
+def test_load_dict():
+    reference = eval(file_io('dict.python').read())
     loaded = lcad.parsers.json.load(file_io('dict.json'))
     assert reference == loaded
 
 
-def test_dump():
+def test_dump_dict():
     reference = json.dumps(json.load(file_io('dict.json')))
-    loaded = lcad.parsers.json.load(file_io('dict.json'))
+    loaded = eval(file_io('dict.python').read())
     dumped = lcad.parsers.json.dump(loaded)
     assert reference == dumped
 
