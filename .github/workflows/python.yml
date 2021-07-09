@@ -21,18 +21,18 @@ jobs:
         # package dependencies
         pip install PyYAML Pandas Tabulate
 
-    - name: Execute smoke tests
+    - name: Smoke tests
       run: |
         PYTHONPATH=. pylint bin lcad --errors-only
         PYTHONPATH=. python ./bin/lcad_bin.py --version
         PYTHONPATH=. python ./bin/lcad_bin.py --help
 
-    - name: Analyse the code with Black
+    - name: Black
       run: |
         black --version
         black --check --diff bin lcad
 
-    - name: Analyse the code with pylint
+    - name: Pylint
       run: |
         pylint --version
         PYTHONPATH=. pylint --fail-under=9 bin lcad
