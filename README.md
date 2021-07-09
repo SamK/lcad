@@ -21,6 +21,7 @@ Supported formats:
 * tabulate
 * vertical
 * raw python
+* CSV
 
 # Install
 
@@ -39,6 +40,8 @@ alias json2python="lcad --from json --to python"
 alias json2yaml="lcad --from json --to yaml"
 alias yaml2json="lcad --from yaml --to json"
 alias yaml2python="lcad --from yaml --to python"
+alias yaml2csv="lcad --from yaml --to csv"
+alias csv2yaml="lcad --from csv --to yaml"
 ```
 
 ## Execute locally

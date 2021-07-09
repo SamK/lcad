@@ -56,6 +56,8 @@ test-build: build
 	./dist/lcad formats
 	./dist/lcad convert --from json --to python  < tests/fixtures/dict.json
 	./dist/lcad convert --from json --to yaml < tests/fixtures/dict.json
+	./dist/lcad convert --from csv --to yaml < tests/fixtures/list_of_dict.csv
+	./dist/lcad convert --from yaml --to csv < tests/fixtures/list_of_dict.yaml
 
 test-unit: test_requirements
 	$(ACTIVATE) && \
