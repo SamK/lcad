@@ -11,7 +11,7 @@ import lcad.parserlib
 __version__ = "0.0.1b"
 
 __description__ = """
-Convert a data type to any data type!
+Convert a data type to any data type.
 """
 
 __epilog__ = ""
@@ -72,7 +72,11 @@ def convert(args):
 
 def parse_arguments(args=None):
     """Parse the command line arguments given by the user"""
-    _help_output_args = "--to json --output-args indent=5 sort_keys=True"
+    _help_output_args = """
+    Provide specific output arguments to the output format.
+    The arguments are directly passed to the function provided by the parser.
+    The format documentation (command "formats") should provide more detailed informations.
+    """
     parser = argparse.ArgumentParser(
         formatter_class=argparse.RawDescriptionHelpFormatter,
         description=__description__,
@@ -96,7 +100,7 @@ def parse_arguments(args=None):
     sp_formats = subparsers.add_parser("formats", help="list supported file formats")
     sp_formats.set_defaults(call_function=list_formats)
 
-    sp_conv = subparsers.add_parser("convert", help="Convert")
+    sp_conv = subparsers.add_parser("convert", help='Convert (see "convert --help")')
 
     sp_conv.add_argument("--input-format", "--from", help="input format", required=True)
     sp_conv.add_argument("--output-format", "--to", help="output format", required=True)

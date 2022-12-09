@@ -1,5 +1,10 @@
 """
-YAML parser
+YAML parser using PyYAML
+
+The extra args are given to yaml.dump():
+https://pyyaml.org/wiki/PyYAMLDocumentation#reference
+
+Example: --to yaml --output-args "explicit_start=True indent=4"
 """
 import yaml
 
