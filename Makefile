@@ -69,6 +69,7 @@ test-coverage: test_requirements
 
 clean-build:
 	/bin/rm -rf ./build ./dist
+	/bin/rm -f ./lcad.spec
 
 clean-venv:
 	/bin/rm -rf ./venv
