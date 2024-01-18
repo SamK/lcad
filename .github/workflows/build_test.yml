@@ -1,4 +1,4 @@
-name: Python Tests
+name: "Build & Test"
 
 on: [push]
 
@@ -6,41 +6,45 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python 3.8
-      uses: actions/setup-python@v1
-      with:
-        python-version: 3.8
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
 
     - name: Install dependencies
       run: |
-        python -m pip install --upgrade pip
-        pip --version
-        # test suite
-        pip install pylint black pytest coverage
-        # package dependencies
-        pip install PyYAML Pandas Tabulate
+        make venv requirements
 
-    - name: Smoke tests
+    - name: Build
       run: |
-        PYTHONPATH=. pylint bin lcad --errors-only
-        PYTHONPATH=. python ./bin/lcad_bin.py --version
-        PYTHONPATH=. python ./bin/lcad_bin.py --help
+        make build
+
+    - name: Test build
+      run: |
+        make test-build
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+
+    - name: Install dependencies
+      run: |
+        make venv test_requirements
 
     - name: Black
       run: |
-        black --version
-        black --check --diff bin lcad
+        make test-black
 
     - name: Pylint
       run: |
-        pylint --version
-        PYTHONPATH=. pylint --fail-under=9 bin lcad
+        make test-lint
 
     - name: Unit tests
       run: |
-        coverage run --source lcad -m pytest
+        make test-unit
 
     - name: Coverage report
       run: |
-        coverage report -m
+        make test-coverage
