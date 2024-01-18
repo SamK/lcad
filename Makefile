@@ -54,6 +54,9 @@ test-lint: test_requirements
 test-build: test_requirements build
 	./dist/lcad --version
 	./dist/lcad --help
+	./dist/lcad formats
+	./dist/lcad convert --from json --to python  < tests/fixtures/dict.json
+	./dist/lcad convert --from json --to yaml < tests/fixtures/dict.json
 
 test-unit: test_requirements
 	$(ACTIVATE) && \
