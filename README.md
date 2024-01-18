@@ -60,9 +60,11 @@ make tests
 
 ## Release
 
-```
-make clean tests
-git tag ...
-git push && git push --tags
-make install
-```
+1. Create release branch
+1. Update version in `lcad/__init__.py`
+1. Pin versions in `requirements.txt`
+1. Execute tests with `make clean tests`
+1. Merge into master
+1. tag with `git tag ...`
+1. push the work with `git push && git push --tags`
+1. Install locally with `make install`

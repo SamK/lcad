@@ -16,9 +16,8 @@ dist/lcad: venv $(SOURCEFILES) $(requirements)
 	PYTHONPATH=. pyinstaller \
 		--onefile \
 		--name=lcad \
-		--hidden-import argparse \
-		--hidden-import lcad \
-		bin/lcad_bin.py \
+		--collect-submodules lcad \
+		bin/lcad_bin.py
 
 # alias
 .PHONY: requirements
@@ -54,6 +53,9 @@ test-lint: test_requirements
 test-build: test_requirements build
 	./dist/lcad --version
 	./dist/lcad --help
+	./dist/lcad formats
+	./dist/lcad convert --from json --to python  < tests/fixtures/dict.json
+	./dist/lcad convert --from json --to yaml < tests/fixtures/dict.json
 
 test-unit: test_requirements
 	$(ACTIVATE) && \
@@ -66,6 +68,7 @@ test-coverage: test_requirements
 
 clean-build:
 	/bin/rm -rf ./build ./dist
+	/bin/rm -f ./lcad.spec
 
 clean-venv:
 	/bin/rm -rf ./venv
