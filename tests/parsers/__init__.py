@@ -1,5 +1,5 @@
 
 
 def file_io(filename):
-    return open('tests/parsers/files/{}'.format(filename),'r')
+    return open('tests/fixtures/{}'.format(filename),'r')
 
