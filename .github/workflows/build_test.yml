@@ -1,0 +1,50 @@
+name: "Build & Test"
+
+on: [push]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+
+    - name: Install dependencies
+      run: |
+        make venv requirements
+
+    - name: Build
+      run: |
+        make build
+
+    - name: Test build
+      run: |
+        make test-build
+
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Set up Python
+      uses: actions/setup-python@v5
+
+    - name: Install dependencies
+      run: |
+        make venv test_requirements
+
+    - name: Black
+      run: |
+        make test-black
+
+    - name: Pylint
+      run: |
+        make test-lint
+
+    - name: Unit tests
+      run: |
+        make test-unit
+
+    - name: Coverage report
+      run: |
+        make test-coverage
