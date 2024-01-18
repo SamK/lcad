@@ -31,39 +31,7 @@ make
 make install
 ```
 
-## Install with Git
-
-Since there is no pip package yet, this seems to be a viable alternative.
-This documentation assumes the Git repository is installed in the `~/github` folder
-and the virtual env is located in `~/.virtualenvs/python3`
-
-* Install the Git repo locally
-```
-cd github
-git clone https://github.com/SamK/lcad.git
-```
-
-* Create a venv and install the dependencies
-```
-mkdir -p ~/.virtualenvs
-python -m venv =~/.virtualenvs/lcad
-. ~/.virtualenvs/lcad/bin/activate
-pip install pyyaml pandas tabulate
-```
-
-* Create a function to put in your .bashrc or whatever file fits your environment:
-```
-function lcad(){
-    local LCAD_DIR=~/github/lcad
-    local VENV_DIR=~/.virtualenvs/lcad
-
-    local LCAD_BIN=${LCAD_DIR}/bin/lcad_bin.py
-    . $VENV_DIR/bin/activate
-    PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=$LCAD_DIR python $LCAD_BIN $*
-}
-```
-
-* Extra tip: add aliases
+* Extra tip: add shell aliases
 ```
 alias python2json="lcad --from python --to json"
 alias python2yaml="lcad --from python --to yaml"
@@ -78,7 +46,6 @@ alias yaml2python="lcad --from yaml --to python"
 ```
 PYTHONPATH=. python ./bin/lcad_bin.py
 ```
-
 
 # Development
 
