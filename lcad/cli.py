@@ -4,11 +4,9 @@ Take care of the command line interface
 import sys
 import textwrap
 import argparse
-from lcad import log
+from lcad import log, __version__
 
 import lcad.parserlib
-
-__version__ = "0.0.1b"
 
 __description__ = """
 Convert a data type to any data type.
