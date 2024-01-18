@@ -49,7 +49,7 @@ test-black: test_requirements
 
 test-lint: test_requirements
 	$(ACTIVATE) && \
-	PYTHONPATH=. pylint $(SOURCEDIR) --max-line-length=120 --max-attributes=99
+	PYTHONPATH=. pylint $(SOURCEDIR) --max-line-length=120 --max-attributes=99 --fail-under=9.7
 
 test-build: test_requirements build
 	./dist/lcad --version
