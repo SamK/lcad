@@ -68,28 +68,35 @@ alias yaml2json="lcad --from yaml --to json"
 alias yaml2python="lcad --from yaml --to python"
 ```
 
-# Development
-
-Disabling Python bytecode makes your environment cleaner:
-```
-export PYTHONDONTWRITEBYTECODE=1
-```
-
-## execute locally
+## Execute locally
 
 ```
 PYTHONPATH=. python ./bin/lcad_bin.py
 ```
 
-## Execute unit tests
+# Install
 
 ```
-PYTHONPATH=. pytest -v
+make
+make install
 ```
 
-tip: Add `--capture=no` to see `print()` statements
+# Development
 
-## Syntax check
+## Execute tests
 
-    black bin lcad
-    PYTHONPATH=. pylint --max-line-length=120 bin lcad
+```
+make clean
+make tests
+```
+
+* pytest tip: Add `--capture=no` to see `print()` statements
+
+## Release
+
+```
+make clean tests
+git tag ...
+git push && git push --tags
+make install
+```
