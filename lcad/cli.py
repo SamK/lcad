@@ -27,7 +27,7 @@ def list_formats(_):
 
         # skip if required
         if properties["hide"]:
-            log.debug("Hiding format {}".format(name))
+            log.debug(f"Hiding format {format}")
             continue
 
         # determine capabilities
@@ -35,7 +35,8 @@ def list_formats(_):
         for operation in ["load", "dump"]:
             if operation in properties and properties[operation]:
                 capabilities.append(operation)
-        format_lines.append("{} ({}):".format(name, ", ".join(capabilities)))
+        f_cap = ", ".join(capabilities)
+        format_lines.append(f"{name} ({f_cap}):")
 
         # determine doc
         doc = properties["doc"]

@@ -29,8 +29,8 @@ def discover_parsers():
     """Return a list of discovered parsers"""
     parsers_found = {}
     for submodule in list_submodules(lcad.parsers):
-        log.debug("Found submodule: {}".format(submodule.name))
-        parser_module_name = "lcad.parsers.{}".format(submodule.name)
+        log.debug(f"Found submodule: {submodule.name}")
+        parser_module_name = f"lcad.parsers.{submodule.name}"
         module = importlib.import_module(parser_module_name)
 
         try:
@@ -50,30 +50,32 @@ def discover_parsers():
 
 def find_module_spec(module_name):
     """Dynamically import a module based on the module name"""
-    log.debug('Importing module {}..."'.format(module_name))
+    log.debug(f'Importing module {module_name}..."')
     parser_spec = find_spec(module_name)
     if parser_spec is None:
-        log.warn('Parser "{}" not found!'.format(module_name))
+        log.warn(f'Parser "{module_name}" not found!')
         raise lcad.errors.UnknownFileFormat
-    log.debug('Found parser "{}": {}'.format(module_name, parser_spec))
+    log.debug(f'Found parser "{module_name}": {parser_spec}')
     return parser_spec
 
 
 def load_file(args):
+    """Abstraction layer that loads a file"""
     parser_module_name = "lcad.parsers." + args.input_format
     try:
         find_module_spec(parser_module_name)
     except lcad.errors.UnknownFileFormat as error:
-        raise type(error)('Unknown input format: "{}"'.format(args.input_format))
+        raise type(error)(f'Unknown input format: "{args.input_format}"')
     parser = importlib.import_module(parser_module_name)
     return parser.load(args.input_file)
 
 
 def dump_file(data, output_format, output_args):
+    """Abstraction layer that dumps a file"""
     parser_module_name = "lcad.parsers." + output_format
     try:
         find_module_spec(parser_module_name)
     except lcad.errors.UnknownFileFormat as error:
-        raise type(error)('Unknown output format: "{}"'.format(output_format))
+        raise type(error)(f'Unknown output format: "{output_format}"')
     parser = importlib.import_module(parser_module_name)
     return parser.dump(data, output_args)

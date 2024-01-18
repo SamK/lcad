@@ -15,7 +15,5 @@ def dump(data, _):  # pylint: disable=missing-function-docstring
         lines.append("*" * 40)
         col_width = len(max(element.keys()))
         for key, value in element.items():
-            lines.append(
-                "{key: >{w}}: {value}".format(key=key, value=value, w=col_width)
-            )
+            lines.append(f"{key: >{col_width}}: {value}")
     return "\n".join(lines)
