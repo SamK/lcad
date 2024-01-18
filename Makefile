@@ -16,9 +16,8 @@ dist/lcad: venv $(SOURCEFILES) $(requirements)
 	PYTHONPATH=. pyinstaller \
 		--onefile \
 		--name=lcad \
-		--hidden-import argparse \
-		--hidden-import lcad \
-		bin/lcad_bin.py \
+		--collect-submodules lcad \
+		bin/lcad_bin.py
 
 # alias
 .PHONY: requirements
