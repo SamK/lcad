@@ -2,4 +2,4 @@
 __init__.py
 """
 
-__version__ = "0.0.1b"
+__version__ = "0.1.0"
