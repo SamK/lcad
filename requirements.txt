@@ -1,0 +1,5 @@
+argparse
+pyinstaller
+pyyaml
+pandas
+tabulate

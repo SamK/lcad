@@ -24,7 +24,12 @@ Supported formats:
 
 # Install
 
-TODO: create a pip package
+## Install as a binary file
+
+```
+make
+make install
+```
 
 ## Install with Git
 
@@ -68,28 +73,29 @@ alias yaml2json="lcad --from yaml --to json"
 alias yaml2python="lcad --from yaml --to python"
 ```
 
-# Development
-
-Disabling Python bytecode makes your environment cleaner:
-```
-export PYTHONDONTWRITEBYTECODE=1
-```
-
-## execute locally
+## Execute locally
 
 ```
 PYTHONPATH=. python ./bin/lcad_bin.py
 ```
 
-## Execute unit tests
+
+# Development
+
+## Execute tests
 
 ```
-PYTHONPATH=. pytest -v
+make clean
+make tests
 ```
 
-tip: Add `--capture=no` to see `print()` statements
+* pytest tip: Add `--capture=no` to see `print()` statements
 
-## Syntax check
+## Release
 
-    black bin lcad
-    PYTHONPATH=. pylint --max-line-length=120 bin lcad
+```
+make clean tests
+git tag ...
+git push && git push --tags
+make install
+```
