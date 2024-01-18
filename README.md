@@ -24,7 +24,12 @@ Supported formats:
 
 # Install
 
-TODO: create a pip package
+## Install as a binary file
+
+```
+make
+make install
+```
 
 ## Install with Git
 
@@ -74,12 +79,6 @@ alias yaml2python="lcad --from yaml --to python"
 PYTHONPATH=. python ./bin/lcad_bin.py
 ```
 
-# Install
-
-```
-make
-make install
-```
 
 # Development
 
