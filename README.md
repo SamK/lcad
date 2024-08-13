@@ -67,6 +67,13 @@ make tests
 
 * pytest tip: Add `--capture=no` to see `print()` statements
 
+## Build the doc
+
+```
+make doc
+```
+The generated doc is available at `doc/index.html`.
+
 ## Release
 
 1. Create release branch

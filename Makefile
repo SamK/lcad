@@ -8,8 +8,15 @@ ACTIVATE = . ./venv/bin/activate
 # alias
 build: dist/lcad
 
+doc: doc/index.html
+
 venv:
 	python3 -m venv venv
+
+doc/index.html: $(SOURCEFILES)
+	$(ACTIVATE) && \
+	pip install --require-virtualenv pdoc && \
+	pdoc lcad -o doc
 
 dist/lcad: venv $(SOURCEFILES) $(requirements)
 	$(ACTIVATE) && \
@@ -76,4 +83,7 @@ clean-build:
 clean-venv:
 	/bin/rm -rf ./venv
 
-clean: clean-build clean-venv
+clean-doc:
+	/bin/rm -rf ./doc
+
+clean: clean-build clean-venv clean-doc
