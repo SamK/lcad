@@ -1,4 +1,4 @@
-black
-pylint
-coverage
-pytest
+black~=23.0
+coverage~=7.0
+pylint~=3.0
+pytest~=7.0
