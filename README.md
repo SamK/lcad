@@ -15,13 +15,19 @@ lcad convert --from yaml --to tabulate --input-file file.json
 ```
 
 Supported formats:
-* json
-* yaml
-* pandas
-* tabulate
-* vertical
-* raw python
-* CSV
+
+This table shows what format lcad can read (input) and write (output).
+
+| format | input | output | notes |
+|--------|-------|--------|-------|
+| `json` | :white_check_mark: | :white_check_mark: | |
+| `yaml` | :white_check_mark: | :white_check_mark: | |
+| `csv`  | :white_check_mark: | :white_check_mark: | |
+| `pandas` | :x: | :white_check_mark: | https://pandas.pydata.org/ |
+| `tabulate` | :x: | :white_check_mark: | https://pypi.org/project/tabulate/ |
+| `vertical` | :x: | :white_check_mark: | a kind of vertical formatting |
+| `python` | :white_check_mark: | :white_check_mark: | raw Python |
+| `pickle` | :white_check_mark: | :white_check_mark: | serialized Python |
 
 # Install
 
