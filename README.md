@@ -6,12 +6,12 @@ Examples:
 
 * Convert json to yaml:
 ```
-lcad convert --from json --to yaml < file.json
+lcad convert --from json --to yaml --input-file file.json
 ```
 
 * Display a yaml file as a table:
 ```
-lcad convert --from yaml --to tabulate < file.json
+lcad convert --from yaml --to tabulate --input-file file.json
 ```
 
 Supported formats:
