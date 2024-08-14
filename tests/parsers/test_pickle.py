@@ -1,5 +1,6 @@
 import io
 import lcad.parsers.json
+import lcad.parsers.pickle
 from . import file_io
 import json
 import pickle
