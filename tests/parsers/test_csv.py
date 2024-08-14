@@ -6,7 +6,7 @@ import io
 
 
 def test_load_list_of_dict():
-    reference = eval(file_io('list_of_dict.python').read())
+    reference = eval(file_io('list_of_dict.py').read())
     loaded = lcad.parsers.csv.load(file_io('list_of_dict.csv'))
     assert reference == loaded
 
@@ -14,7 +14,7 @@ def test_load_list_of_dict():
 def test_dump_list_of_dict():
     reference = file_io("list_of_dict.csv").read()
 
-    data = eval(file_io('list_of_dict.python').read())
+    data = eval(file_io('list_of_dict.py').read())
     dumped = lcad.parsers.csv.dump(data)
 
     assert reference == dumped

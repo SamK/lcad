@@ -4,8 +4,8 @@ from . import file_io
 
 
 def test_load():
-    reference = file_io('dict.python').read()
-    loaded = lcad.parsers.cat.load(file_io('dict.python'))
+    reference = file_io('dict.py').read()
+    loaded = lcad.parsers.cat.load(file_io('dict.py'))
     assert reference == loaded
 
 

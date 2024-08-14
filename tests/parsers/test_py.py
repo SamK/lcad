@@ -1,20 +1,21 @@
 import io
 import lcad.parsers.json
+import lcad.parsers.py
 from . import file_io
 import json
 
 
 def test_load():
-    reference = eval(file_io('dict.python').read())
-    loaded = lcad.parsers.python.load(file_io('dict.python'))
+    reference = eval(file_io('dict.py').read())
+    loaded = lcad.parsers.py.load(file_io('dict.py'))
     assert reference == loaded
 
 
 def test_dump():
-    vref = eval(file_io('dict.python').read()) # reference as python type
+    vref = eval(file_io('dict.py').read()) # reference as python type
     reference = repr(vref) # reference as string type
 
     loaded = lcad.parsers.json.load(file_io('dict.json')) # data as python type
-    dumped = lcad.parsers.python.dump(loaded) # data as string type
+    dumped = lcad.parsers.py.dump(loaded) # data as string type
 
     assert reference == dumped

@@ -5,14 +5,14 @@ from . import file_io
 
 
 def test_load_dict():
-    reference = eval(file_io('dict.python').read())
+    reference = eval(file_io('dict.py').read())
     loaded = lcad.parsers.json.load(file_io('dict.json'))
     assert reference == loaded
 
 
 def test_dump_dict():
     reference = json.dumps(json.load(file_io('dict.json')))
-    loaded = eval(file_io('dict.python').read())
+    loaded = eval(file_io('dict.py').read())
     dumped = lcad.parsers.json.dump(loaded)
     assert reference == dumped
 

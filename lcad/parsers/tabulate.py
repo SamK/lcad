@@ -2,6 +2,7 @@
 Parser for the Tabulate library: https://pypi.org/project/tabulate/
 Only supports dump.
 """
+
 import tabulate
 import lcad.errors
 
