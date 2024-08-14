@@ -5,4 +5,4 @@ See the README for an introduction:
 https://github.com/SamK/lcad
 """
 
-__version__ = "0.1.0"
+__version__ = "0.2.0"
