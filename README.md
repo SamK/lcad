@@ -87,3 +87,4 @@ The generated doc is available at `doc/index.html`.
 1. tag with `git tag ...`
 1. push the work with `git push && git push --tags`
 1. Install locally with `make install`
+1. Update version in `lcad/__init__.py` to `master`
