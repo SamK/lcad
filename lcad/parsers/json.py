@@ -1,7 +1,15 @@
 """
 Json parser
 
-Example: --to json --output-args "indent=5 sort_keys=True"
+
+output args can be specified and are given to
+`json.dumps()`.
+
+See: https://docs.python.org/3/library/json.html#json.dumps
+
+Example:
+
+    --to json --output-args "indent=5 sort_keys=True"
 """
 import json
 

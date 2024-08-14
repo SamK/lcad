@@ -1,5 +1,7 @@
 """
 Functions related to the manipulation of the parsers
+
+https://docs.python.org
 """
 import importlib
 from pkgutil import iter_modules
@@ -10,7 +12,7 @@ import lcad.errors
 from lcad import log
 
 
-def has_function(module, function_name):
+def has_function(module, function_name) -> bool:
     """Determine if a given module contains a function called "function_name" """
     functions_list = getmembers(module, isfunction)
     return any(f[0] == function_name for f in functions_list)

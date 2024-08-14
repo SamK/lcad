@@ -1,11 +1,13 @@
 """
-Parser that returns what has been given without modification
+This module does not actually anything, it reads and write without looking at the content.
 """
 
 
-def load(text):  # pylint: disable=missing-function-docstring
+def load(text):
+    """Returns the `data` given in argument"""
     return text.read()
 
 
-def dump(text, _=None):  # pylint: disable=missing-function-docstring
+def dump(text, _=None):
+    """Returns the `data` given in argument"""
     return text

@@ -1,6 +1,6 @@
 """
 Basic Python parser using "eval()" to load and "repr()" to dump.
-See "pickle".
+See also `lcad.parsers.pickle`.
 """
 
 

@@ -4,7 +4,7 @@ Contains the exceptions of the application
 
 
 class WipError(NotImplementedError):
-    """Raised when work is in progress"""
+    """Raised when a feature is not yet implemented"""
 
 
 class UnknownFileFormat(Exception):
@@ -12,8 +12,8 @@ class UnknownFileFormat(Exception):
 
 
 class DataInputError(Exception):
-    """Raised when the data cannot be outputted"""
+    """Raised when the data cannot be loaded"""
 
 
 class DataOutputError(Exception):
-    """Raised when the data cannot be outputted"""
+    """Raised when the data cannot be dumped"""
