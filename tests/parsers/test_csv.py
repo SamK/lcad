@@ -1,8 +1,5 @@
-import io
-import csv
 import lcad.parsers.csv
 from . import file_io
-import io
 
 
 def test_load_list_of_dict():

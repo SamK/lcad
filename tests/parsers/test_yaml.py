@@ -1,4 +1,3 @@
-import io
 import yaml
 import lcad.parsers.yaml
 from . import file_io

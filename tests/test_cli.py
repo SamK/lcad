@@ -33,7 +33,7 @@ def test_cli_no_rogue_print(capsys):
 
 def test_exit_noarg():
     with pytest.raises(SystemExit) as pytest_wrapped_e:
-            lcad.cli.main()
-            args = parse_arguments()
+        lcad.cli.main()
+        lcad.cli.parse_arguments()
     assert pytest_wrapped_e.type == SystemExit
     assert pytest_wrapped_e.value.code == 2

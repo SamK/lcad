@@ -1,4 +1,3 @@
-import io
 import lcad.parsers.cat
 from . import file_io
 
