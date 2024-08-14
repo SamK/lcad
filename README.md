@@ -40,14 +40,14 @@ make install
 
 * Extra tip: add shell aliases
 ```
-alias python2json="lcad --from python --to json"
-alias python2yaml="lcad --from python --to yaml"
-alias json2python="lcad --from json --to python"
-alias json2yaml="lcad --from json --to yaml"
-alias yaml2json="lcad --from yaml --to json"
-alias yaml2python="lcad --from yaml --to python"
-alias yaml2csv="lcad --from yaml --to csv"
-alias csv2yaml="lcad --from csv --to yaml"
+alias python2json="lcad convert --from python --to json"
+alias python2yaml="lcad convert --from python --to yaml"
+alias json2python="lcad convert --from json --to python"
+alias json2yaml="lcad convert --from json --to yaml"
+alias yaml2json="lcad convert --from yaml --to json"
+alias yaml2python="lcad convert --from yaml --to python"
+alias yaml2csv="lcad convert --from yaml --to csv"
+alias csv2yaml="lcad convert --from csv --to yaml"
 ```
 
 ## Execute locally
