@@ -2,8 +2,8 @@ import pytest
 
 
 @pytest.fixture
-def dict_python_txt():
-    with open('tests/fixtures/dict.python','r') as f:
+def dict_py_txt():
+    with open('tests/fixtures/dict.py','r') as f:
         data = f.read()
     return eval(data)
 

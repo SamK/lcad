@@ -61,7 +61,7 @@ test-build: build
 	./dist/lcad --version
 	./dist/lcad --help
 	./dist/lcad formats
-	./dist/lcad convert --from json --to python -i tests/fixtures/dict.json
+	./dist/lcad convert --from json --to py -i tests/fixtures/dict.json
 	./dist/lcad convert --from json --to yaml -i tests/fixtures/dict.json
 	./dist/lcad convert --from csv --to yaml -i tests/fixtures/list_of_dict.csv
 	./dist/lcad convert --from csv --to vertical -i tests/fixtures/list_of_dict.csv

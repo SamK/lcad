@@ -26,7 +26,7 @@ This table shows what format lcad can read (input) and write (output).
 | `pandas` | :x: | :white_check_mark: | https://pandas.pydata.org/ |
 | `tabulate` | :x: | :white_check_mark: | https://pypi.org/project/tabulate/ |
 | `vertical` | :x: | :white_check_mark: | a kind of vertical formatting |
-| `python` | :white_check_mark: | :white_check_mark: | raw Python |
+| `py` | :white_check_mark: | :white_check_mark: | raw Python |
 | `pickle` | :white_check_mark: | :white_check_mark: | serialized Python |
 | `lines` | :white_check_mark: | :white_check_mark: | a list, one element per line |
 
@@ -41,12 +41,12 @@ make install
 
 * Extra tip: add shell aliases
 ```
-alias python2json="lcad convert --from python --to json"
-alias python2yaml="lcad convert --from python --to yaml"
-alias json2python="lcad convert --from json --to python"
+alias py2json="lcad convert --from py --to json"
+alias py2yaml="lcad convert --from py --to yaml"
+alias json2py="lcad convert --from json --to py"
 alias json2yaml="lcad convert --from json --to yaml"
 alias yaml2json="lcad convert --from yaml --to json"
-alias yaml2python="lcad convert --from yaml --to python"
+alias yaml2py="lcad convert --from yaml --to py"
 alias yaml2csv="lcad convert --from yaml --to csv"
 alias csv2yaml="lcad convert --from csv --to yaml"
 alias yaml2lines="lcad convert --from yaml --to lines"
