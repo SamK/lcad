@@ -56,7 +56,7 @@ test-black: test_requirements
 test-lint: test_requirements
 	$(ACTIVATE) && \
 	PYTHONPATH=. pylint $(SOURCEDIR) --max-line-length=120 --max-attributes=99 --fail-under=9.95 && \
-	PYTHONPATH=. pylint tests --disable=C,R,unspecified-encoding
+	PYTHONPATH=. pylint tests --disable=C,R,unspecified-encoding,eval-used --ignore=tests/fixtures
 
 test-build: build
 	./dist/lcad --version

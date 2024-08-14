@@ -18,7 +18,7 @@ def dict_json_txt():
 @pytest.fixture
 def dict_yaml_io():
     return open('tests/fixtures/dict.yml','r')
-    with open('tests/fixtures/dict.yml','r') as f:
-        output = f.read()
-    return output
+    #with open('tests/fixtures/dict.yml','r') as f:
+    #    output = f.read()
+    #return output
 
