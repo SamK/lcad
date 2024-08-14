@@ -1,6 +1,7 @@
 """
 Manage the logging system of the application
 """
+
 import logging
 
 

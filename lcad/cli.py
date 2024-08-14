@@ -1,6 +1,7 @@
 """
 Take care of the command line interface
 """
+
 import sys
 import textwrap
 import argparse

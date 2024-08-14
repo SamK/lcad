@@ -1,6 +1,7 @@
 """
 Print elements in a "vertical" format (like MySQL)
 """
+
 from lcad import log
 
 
