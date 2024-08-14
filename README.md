@@ -28,6 +28,7 @@ This table shows what format lcad can read (input) and write (output).
 | `vertical` | :x: | :white_check_mark: | a kind of vertical formatting |
 | `python` | :white_check_mark: | :white_check_mark: | raw Python |
 | `pickle` | :white_check_mark: | :white_check_mark: | serialized Python |
+| `lines` | :white_check_mark: | :white_check_mark: | a list, one element per line |
 
 # Install
 
@@ -48,6 +49,8 @@ alias yaml2json="lcad convert --from yaml --to json"
 alias yaml2python="lcad convert --from yaml --to python"
 alias yaml2csv="lcad convert --from yaml --to csv"
 alias csv2yaml="lcad convert --from csv --to yaml"
+alias yaml2lines="lcad convert --from yaml --to lines"
+alias lines2yaml="lcad convert --from lines --to yaml"
 ```
 
 ## Execute locally
